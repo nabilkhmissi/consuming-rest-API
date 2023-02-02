@@ -1,0 +1,37 @@
+<h2>Users </h2>
+<hr>
+<div *ngIf="response" class="card">
+    <div class="card-body">
+        <h5>Random user API</h5>
+        <p class="card-text">Seed : {{ response.info.seed }} </p>
+        <p class="card-text">Seed : {{ response.info.results }} </p>
+        <p class="card-text">Seed : {{ response.info.version }} </p>
+    </div>
+
+</div>
+<br>
+<table class="table table-striped" *ngIf="response">
+    <thead class="table-light">
+        <th scope="col">ID</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of response?.results;let i = index">
+            <td>{{ user.uuid.substr(0, 6) }}</td>
+            <td><img style="height: 45px;width: 45px;border-radius : 50px" [src]="user.imageUrl" [alt]="user.firstName">
+            </td>
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.phone }}</td>
+            <td>
+                <button class="btn btn-primary" routerLink="/user/{{user.uuid}}">View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

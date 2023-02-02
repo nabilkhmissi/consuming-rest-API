@@ -1,0 +1,19 @@
+.user-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-card img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+.user-card .user-details ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    text-align: center;
+}
